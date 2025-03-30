@@ -1,6 +1,3 @@
-﻿  flappybird.cpp
-C:\game\flappybird\flappybird\flappybird.cpp(72,99): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
-C:\game\flappybird\flappybird\flappybird.cpp(72,99): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\game\flappybird\flappybird\flappybird.cpp(74,102): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
-C:\game\flappybird\flappybird\flappybird.cpp(74,102): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+﻿  Scanning sources for module dependencies...
+  global.cpp
   flappybird.vcxproj -> C:\game\flappybird\x64\Debug\flappybird.exe

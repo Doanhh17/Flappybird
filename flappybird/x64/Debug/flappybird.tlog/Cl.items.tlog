@@ -1,1 +1,4 @@
-C:\game\flappybird\flappybird\flappybird.cpp;C:\game\flappybird\flappybird\x64\Debug\flappybird.obj
+C:\game\flappybird\flappybird\constant.h;C:\game\flappybird\flappybird\x64\Debug\constant.h.obj
+C:\game\flappybird\flappybird\function.cpp;C:\game\flappybird\flappybird\x64\Debug\function.obj
+C:\game\flappybird\flappybird\global.cpp;C:\game\flappybird\flappybird\x64\Debug\global.obj
+C:\game\flappybird\flappybird\main.cpp;C:\game\flappybird\flappybird\x64\Debug\main.obj

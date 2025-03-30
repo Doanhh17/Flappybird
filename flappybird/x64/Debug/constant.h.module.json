@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\constant.h.obj",
+            "outputs": [
+                "C:\\game\\flappybird\\flappybird\\x64\\Debug\\vc143.pdb",
+                "x64\\Debug\\",
+                "C:\\game\\flappybird\\flappybird\\x64\\Debug\\constant.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "constant.h",
+                    "source-path": "c:\\game\\flappybird\\flappybird\\constant.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
