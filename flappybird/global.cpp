@@ -32,7 +32,7 @@ int mouseX = 0, mouseY = 0;
 // Menu chính - căn giữa hoàn hảo
 SDL_Rect startRect = { widthwindow / 2 - BUTTON_WIDTH / 2, heighwindow / 2 - BUTTON_HEIGHT - BUTTON_DISTANCE / 2, BUTTON_WIDTH, BUTTON_HEIGHT };
 SDL_Rect helpRect = {widthwindow / 2 - BUTTON_WIDTH / 2, heighwindow / 2 + BUTTON_DISTANCE / 2 , BUTTON_WIDTH, BUTTON_HEIGHT};
-SDL_Rect quitRect={ widthwindow / 2 - BUTTON_WIDTH / 2, heighwindow / 2 + BUTTON_DISTANCE+BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT };
+SDL_Rect quitRect={ widthwindow / 2 - BUTTON_WIDTH / 2, heighwindow / 2 + BUTTON_DISTANCE+BUTTON_HEIGHT+ BUTTON_DISTANCE / 2, BUTTON_WIDTH, BUTTON_HEIGHT };
 // Menu tạm dừng - căn giữa hoàn hảo
 SDL_Rect resumeRect = { widthwindow / 2 - BUTTON_WIDTH / 2, heighwindow / 2 - BUTTON_HEIGHT * 3/2 - BUTTON_DISTANCE, BUTTON_WIDTH, BUTTON_HEIGHT };
 SDL_Rect restartRect = { widthwindow / 2 - BUTTON_WIDTH / 2, heighwindow / 2 - BUTTON_HEIGHT / 2, BUTTON_WIDTH, BUTTON_HEIGHT };
