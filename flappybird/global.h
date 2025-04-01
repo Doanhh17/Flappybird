@@ -10,7 +10,6 @@ extern SDL_Texture* birdTexture3;
 extern SDL_Texture* pipeTexture;
 extern SDL_Texture* backgroundTexture;
 extern TTF_Font* font;
-extern TTF_Font* fonthelp;
 extern TTF_Font* titleFont;
 extern Mix_Music* backgroundMusic;
 extern Mix_Chunk* jumpSound;

@@ -54,7 +54,6 @@ void init() {
 
     // Font tiêu đề lớn hơn
     font = TTF_OpenFont("font.ttf", 24);
-    fonthelp = TTF_OpenFont("font.ttf", 12);
     titleFont = TTF_OpenFont("font.ttf", 48);
     if (!font || !titleFont) {
         cout << "Error loading font: " << TTF_GetError() << endl;

@@ -1,3 +1,6 @@
 ﻿  Scanning sources for module dependencies...
+  function.cpp
   global.cpp
+  main.cpp
+  Generating Code...
   flappybird.vcxproj -> C:\game\flappybird\x64\Debug\flappybird.exe
