@@ -3,8 +3,7 @@ const int widthwindow = 800;
 const int heighwindow = 600;
 const int birdsize = 40;
 const int g = 1;
-const int jump = -12;
-const int speedcol = 5;
+const int jump = -13;
 const int dis_tance2cols = 200;
 const int widthcol = 80;
 

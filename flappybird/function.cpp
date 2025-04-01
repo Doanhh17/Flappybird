@@ -54,6 +54,7 @@ void init() {
 
     // Font tiêu đề lớn hơn
     font = TTF_OpenFont("font.ttf", 24);
+    fonthelp = TTF_OpenFont("font.ttf", 12);
     titleFont = TTF_OpenFont("font.ttf", 48);
     if (!font || !titleFont) {
         cout << "Error loading font: " << TTF_GetError() << endl;
@@ -78,6 +79,7 @@ void init() {
 }
 
 void resetGame() {
+    speedcol = 5;
     flappybird.y = heighwindow / 3;
     birdV = 0;
     col_list.clear();
@@ -90,6 +92,7 @@ void resetGame() {
 
 bool checkCollision() {
     for (auto& col : col_list) {
+        if (flappybird.y < 0 || flappybird.y + birdsize > heighwindow) return true;
         if (flappybird.x + birdsize > col.x && flappybird.x < col.x + widthcol) {
             if (flappybird.y < col.heigh || flappybird.y + birdsize > col.heigh + dis_tance2cols) {
                 return true;
@@ -97,6 +100,10 @@ bool checkCollision() {
         }
     }
     return false;
+}
+bool checkcollisionbutton(SDL_Rect a,int buttonx,int buttony) {
+    return (buttonx >= a.x && buttonx <= a.x + a.w &&
+        buttony >= a.y && buttony <= a.y + a.h);
 }
 void update() {
     SDL_Event e;
@@ -111,96 +118,97 @@ void update() {
         else if (e.type == SDL_MOUSEBUTTONDOWN) {
             int x = e.button.x, y = e.button.y;
             if (inMenu) {
-                if (x >= startRect.x && x <= startRect.x + startRect.w &&
-                    y >= startRect.y && y <= startRect.y + startRect.h) {
+                if (checkcollisionbutton(startRect, x, y)) {
                     inMenu = false;
                     resetGame();
                 }
-                if (x >= quitRect.x && x <= quitRect.x + quitRect.w &&
-                    y >= quitRect.y && y <= quitRect.y + quitRect.h) {
+                if (checkcollisionbutton(quitRect, x, y)) {
                     run = false;
+                }
+                if (checkcollisionbutton(helpRect, x, y)) {
+                    inhelp = true;
+                    inMenu = false;
+                }
+            }
+            else if(inhelp){
+                if (checkcollisionbutton(backRect, x, y)) {
+                    inhelp = false;
+                    inMenu = true;
                 }
             }
             else if (isPaused) {
-                if (x >= resumeRect.x && x <= resumeRect.x + resumeRect.w &&
-                    y >= resumeRect.y && y <= resumeRect.y + resumeRect.h) {
+                if (checkcollisionbutton(resumeRect, x, y)) {
                     isPaused = false;
                 }
-                if (x >= restartRect.x && x <= restartRect.x + restartRect.w &&
-                    y >= restartRect.y && y <= restartRect.y + restartRect.h) {
+                if (checkcollisionbutton(restartRect, x, y)) {
                     resetGame();
                 }
-                if (x >= pauseQuitRect.x && x <= pauseQuitRect.x + pauseQuitRect.w &&
-                    y >= pauseQuitRect.y && y <= pauseQuitRect.y + pauseQuitRect.h) {
+                if (checkcollisionbutton(pauseQuitRect, x, y)) {
                     inMenu = true;
                     isPaused = false;
                 }
             }
             else if (gameOver) { // Thêm xử lý sự kiện cho game over
-                if (x >= gameOverRestartRect.x && x <= gameOverRestartRect.x + gameOverRestartRect.w &&
-                    y >= gameOverRestartRect.y && y <= gameOverRestartRect.y + gameOverRestartRect.h) {
+                if (checkcollisionbutton(gameOverRestartRect, x, y)) {
                     resetGame();
                 }
-                if (x >= gameOverMenuRect.x && x <= gameOverMenuRect.x + gameOverMenuRect.w &&
-                    y >= gameOverMenuRect.y && y <= gameOverMenuRect.y + gameOverMenuRect.h) {
+                if (checkcollisionbutton(gameOverMenuRect, x, y)) {
                     inMenu = true;
                     gameOver = false;
                 }
             }
         }
         else if (e.type == SDL_KEYDOWN) {
-            if (e.key.keysym.sym == SDLK_p && !inMenu && !gameOver) { // Không cho pause khi game over
+            if (e.key.keysym.sym == SDLK_p && !inMenu && !gameOver && !inhelp) { // Không cho pause khi game over
                 isPaused = !isPaused;
             }
-            else if (e.key.keysym.sym == SDLK_SPACE && !inMenu && !isPaused && !gameOver) {
+            else if (e.key.keysym.sym == SDLK_SPACE && !inMenu && !isPaused && !gameOver && !inhelp) {
                 birdV = jump;
                 Mix_PlayChannel(-1, jumpSound, 0);
             }
         }
     }
-
-    if (!inMenu && !isPaused && !gameOver) { // Thêm điều kiện !gameOver
-        animationDelay++;
-        if (animationDelay > ANIMATION_SPEED) {
-            animationFrame = (animationFrame + 1) % 3;
-            animationDelay = 0;
-        }
-
-        birdV += g;
-        flappybird.y += birdV;
-
-        for (auto& col : col_list) {
-            col.x -= speedcol;
-        }
-
-        if (!col_list.empty() && col_list[0].x + widthcol < -2) {
-            col_list.erase(col_list.begin());
-        }
-
-        if (col_list.empty() || col_list.back().x + widthcol < widthwindow / 2) {
-            col_list.push_back(uppercol(widthwindow, rand() % (heighwindow - dis_tance2cols - 50)));
-        }
-
-        for (auto& col : col_list) {
-            if (!col.passed && flappybird.x > col.x + widthcol) {
-                score++;
-                col.passed = true;
-                Mix_PlayChannel(-1, scoreSound, 0);
+    if (!inMenu && !isPaused && !gameOver&&!inhelp) { // Thêm điều kiện !gameOver
+            animationDelay++;
+            if (animationDelay > ANIMATION_SPEED) {
+                animationFrame = (animationFrame + 1) % 3;
+                animationDelay = 0;
             }
-        }
 
-        if (flappybird.y < 0 || flappybird.y + birdsize > heighwindow || checkCollision()) {
-            Mix_PlayChannel(-1, hitSound, 0);
-            if (score > highScore) highScore = score;
-            gameOver = true; // Thay đổi trạng thái thành game over thay vì về menu
-        }
+            birdV += g;
+            flappybird.y += birdV;
+
+            for (auto& col : col_list) {
+                col.x -= speedcol;
+            }
+
+            if (!col_list.empty() && col_list[0].x + widthcol < -2) {
+                col_list.erase(col_list.begin());
+            }
+
+            if (col_list.empty() || col_list.back().x + widthcol < widthwindow / 2) {
+                col_list.push_back(uppercol(widthwindow, rand() % (heighwindow - dis_tance2cols - 50)));
+            }
+
+            for (auto& col : col_list) {
+                if (!col.passed && flappybird.x > col.x + widthcol) {
+                    score++;
+                    if (score % 5 == 0) speedcol += 1;
+                    col.passed = true;
+                    Mix_PlayChannel(-1, scoreSound, 0);
+                }
+            }
+
+            if (checkCollision()) {
+                Mix_PlayChannel(-1, hitSound, 0);
+                if (score > highScore) highScore = score;
+                gameOver = true; // Thay đổi trạng thái thành game over thay vì về menu
+            }
     }
 }
-
 void RENDER() {
     SDL_RenderClear(render);
     SDL_RenderCopy(render, backgroundTexture, nullptr, nullptr);
-
     if (inMenu) {
         // Tiêu đề game - căn giữa
         SDL_Surface* titleSurface = TTF_RenderText_Blended(titleFont, "FLAPPY BIRD", { 255, 215, 0 });
@@ -209,12 +217,11 @@ void RENDER() {
         SDL_FreeSurface(titleSurface);
 
         // Các nút bấm
-        bool hoverStart = (mouseX >= startRect.x && mouseX <= startRect.x + startRect.w &&
-            mouseY >= startRect.y && mouseY <= startRect.y + startRect.h);
-        bool hoverQuit = (mouseX >= quitRect.x && mouseX <= quitRect.x + quitRect.w &&
-            mouseY >= quitRect.y && mouseY <= quitRect.y + quitRect.h);
-
+        bool hoverStart = checkcollisionbutton(startRect, mouseX, mouseY);
+        bool hoverQuit = checkcollisionbutton(quitRect, mouseX, mouseY);
+        bool hoverhelp = checkcollisionbutton(helpRect, mouseX, mouseY);
         drawButton(startRect, "START GAME", hoverStart);
+        drawButton(helpRect, "HELP", hoverhelp);
         drawButton(quitRect, "QUIT", hoverQuit);
 
         // High score - căn giữa dưới cùng
@@ -223,6 +230,12 @@ void RENDER() {
         SDL_Rect scoreRect = { widthwindow / 2 - scoreSurface->w / 2, SCORE_BOTTOM, scoreSurface->w, scoreSurface->h };
         SDL_RenderCopy(render, SDL_CreateTextureFromSurface(render, scoreSurface), nullptr, &scoreRect);
         SDL_FreeSurface(scoreSurface);
+    }
+    else if (inhelp) {
+        bool hoverback = checkcollisionbutton(backRect,mouseX,mouseY);
+        drawButton(backRect, "BACK TO MENU", hoverback);
+        renderText("Press SPACE to control the bird to fly through pipes", startRect.x-200, startRect.y-100, { 255,255,0 }, font);
+        renderText("Each passed pipe: +1 point. Difficulty increases with score", startRect.x - 230, startRect.y - 100+BUTTON_HEIGHT, { 255,255,0 }, font);
     }
     else if (isPaused) {
         // Tiêu đề pause - căn giữa
