@@ -64,7 +64,8 @@ void init() {
     birdTexture1 = loadTexture("bird1.png");
     birdTexture2 = loadTexture("bird2.png");
     birdTexture3 = loadTexture("bird3.png");
-    pipeTexture = loadTexture("pipe.png");
+    pipeTexture1 = loadTexture("upper.png");
+    pipeTexture2= loadTexture("under.png");
     backgroundTexture = loadTexture("background.png");
 
     jumpSound = Mix_LoadWAV("jump.wav");
@@ -76,6 +77,34 @@ void init() {
         Mix_PlayMusic(backgroundMusic, -1);
     }
 }
+int readHighScore() {
+    ifstream file("highscore.txt");
+    int highScore = 0;
+
+    if (file.is_open()) {
+        file >> highScore;
+        file.close();
+    }
+
+    return highScore;
+}
+
+void saveHighScore(int score) {
+    int currentHigh = readHighScore();
+
+    if (score > currentHigh) {
+        ofstream file("highscore.txt");
+        if (file.is_open()) {
+            file << score;
+            file.close();
+            cout << "New high score saved: " << score << endl;
+        }
+        else {
+            cout << "Cannot open file to save high score." << endl;
+        }
+    }
+}
+
 
 void resetGame() {
     speedcol = 5;
@@ -163,11 +192,11 @@ void update() {
             }
             else if (e.key.keysym.sym == SDLK_SPACE && !inMenu && !isPaused && !gameOver && !inhelp) {
                 birdV = jump;
-                Mix_PlayChannel(-1, jumpSound, 0);
+                 Mix_PlayChannel(-1, jumpSound, 0);
             }
         }
     }
-    if (!inMenu && !isPaused && !gameOver&&!inhelp) { // Thêm điều kiện !gameOver
+    if (!inMenu && !isPaused && !gameOver&&!inhelp) { 
             animationDelay++;
             if (animationDelay > ANIMATION_SPEED) {
                 animationFrame = (animationFrame + 1) % 3;
@@ -192,15 +221,19 @@ void update() {
             for (auto& col : col_list) {
                 if (!col.passed && flappybird.x > col.x + widthcol) {
                     score++;
-                    if (score % 5 == 0) speedcol += 1;
+                    saveHighScore(score);
+                    if (score % 5 == 0) {
+                        speedcol += 1;
+                    }
                     col.passed = true;
                     Mix_PlayChannel(-1, scoreSound, 0);
                 }
             }
-
+            for (auto& col : col_list) {
+                if ((score % 5 == 0 || score % 8 == 0) && score != 0 && flappybird.x < col.x) col.heigh +=col.speedYcol;
+            }
             if (checkCollision()) {
                 Mix_PlayChannel(-1, hitSound, 0);
-                if (score > highScore) highScore = score;
                 gameOver = true; // Thay đổi trạng thái thành game over thay vì về menu
             }
     }
@@ -224,7 +257,7 @@ void RENDER() {
         drawButton(quitRect, "QUIT", hoverQuit);
 
         // High score - căn giữa dưới cùng
-        string highScoreText = "HIGH SCORE: " + to_string(highScore);
+        string highScoreText = "HIGH SCORE: " + to_string(readHighScore());
         SDL_Surface* scoreSurface = TTF_RenderText_Blended(font, highScoreText.c_str(), { 255, 255, 255 });
         SDL_Rect scoreRect = { widthwindow / 2 - scoreSurface->w / 2, SCORE_BOTTOM, scoreSurface->w, scoreSurface->h };
         SDL_RenderCopy(render, SDL_CreateTextureFromSurface(render, scoreSurface), nullptr, &scoreRect);
@@ -276,8 +309,8 @@ void RENDER() {
         for (auto& col : col_list) {
             SDL_Rect upper = { col.x, 0, widthcol, col.heigh };
             SDL_Rect under = { col.x, col.heigh + dis_tance2cols, widthcol, heighwindow - col.heigh - dis_tance2cols };
-            SDL_RenderCopy(render, pipeTexture, nullptr, &upper);
-            SDL_RenderCopyEx(render, pipeTexture, nullptr, &under, 0, nullptr, SDL_FLIP_VERTICAL);
+            SDL_RenderCopy(render, pipeTexture1, nullptr, &upper);
+            SDL_RenderCopy(render, pipeTexture2, nullptr, &under);
         }
 
         // Vẽ overlay mờ
@@ -287,7 +320,7 @@ void RENDER() {
         SDL_RenderFillRect(render, &overlay);
         SDL_SetRenderDrawBlendMode(render, SDL_BLENDMODE_NONE);
 
-        // Tiêu đề Game Over
+        // Game Over
         SDL_Surface* gameOverSurface = TTF_RenderText_Blended(titleFont, "GAME OVER", { 255, 50, 50 });
         SDL_Rect gameOverRect = { widthwindow / 2 - gameOverSurface->w / 2, TITLE_HEIGH, gameOverSurface->w, gameOverSurface->h };
         SDL_RenderCopy(render, SDL_CreateTextureFromSurface(render, gameOverSurface), nullptr, &gameOverRect);
@@ -299,14 +332,6 @@ void RENDER() {
         SDL_Rect scoreRect = { widthwindow / 2 - scoreSurface->w / 2, heighwindow / 2 - 50, scoreSurface->w, scoreSurface->h };
         SDL_RenderCopy(render, SDL_CreateTextureFromSurface(render, scoreSurface), nullptr, &scoreRect);
         SDL_FreeSurface(scoreSurface);
-
-        // Hiển thị high score
-        string highScoreText = "HIGH SCORE: " + to_string(highScore);
-        SDL_Surface* highScoreSurface = TTF_RenderText_Blended(font, highScoreText.c_str(), { 255, 255, 255 });
-        SDL_Rect highScoreRect = { widthwindow / 2 - highScoreSurface->w / 2, heighwindow / 2, highScoreSurface->w, highScoreSurface->h };
-        SDL_RenderCopy(render, SDL_CreateTextureFromSurface(render, highScoreSurface), nullptr, &highScoreRect);
-        SDL_FreeSurface(highScoreSurface);
-
         // Các nút bấm
         bool hoverRestart = (mouseX >= gameOverRestartRect.x && mouseX <= gameOverRestartRect.x + gameOverRestartRect.w &&
             mouseY >= gameOverRestartRect.y && mouseY <= gameOverRestartRect.y + gameOverRestartRect.h);
@@ -326,14 +351,12 @@ void RENDER() {
         default: currentBirdTexture = birdTexture1; break;
         }
         SDL_RenderCopy(render, currentBirdTexture, nullptr, &flappybird);
-
         for (auto& col : col_list) {
             SDL_Rect upper = { col.x, 0, widthcol, col.heigh };
             SDL_Rect under = { col.x, col.heigh + dis_tance2cols, widthcol, heighwindow - col.heigh - dis_tance2cols };
-            SDL_RenderCopy(render, pipeTexture, nullptr, &upper);
-            SDL_RenderCopyEx(render, pipeTexture, nullptr, &under, 0, nullptr, SDL_FLIP_VERTICAL);
+            SDL_RenderCopy(render, pipeTexture1, nullptr, &upper);
+            SDL_RenderCopy(render, pipeTexture2, nullptr, &under);
         }
-
         // Hiển thị điểm và hướng dẫn
         renderText("Score: " + to_string(score), 20, 20, { 255, 255, 255 }, font);
         renderText("Press P to pause", 20, heighwindow - 40, { 255, 255, 255 }, font);
@@ -353,7 +376,8 @@ void quit() {
     SDL_DestroyTexture(birdTexture1);
     SDL_DestroyTexture(birdTexture2);
     SDL_DestroyTexture(birdTexture3);
-    SDL_DestroyTexture(pipeTexture);
+    SDL_DestroyTexture(pipeTexture1);
+    SDL_DestroyTexture(pipeTexture2);
     SDL_DestroyTexture(backgroundTexture);
 
     TTF_CloseFont(font);

@@ -3,36 +3,36 @@
   "WorkspaceRootPath": "C:\\game\\flappybird\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\function.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\function.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\global.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\global.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\global.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\global.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\constant.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\constant.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\function.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\function.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\pipe.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\pipe.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\global.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\global.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\function.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\function.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\constant.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\constant.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\lib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\lib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|C:\\game\\flappybird\\flappybird\\pipe.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3F81EF33-086E-498A-85DC-305D20940B00}|flappybird\\flappybird.vcxproj|solutionrelative:flappybird\\pipe.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\main.cpp",
               "RelativeDocumentMoniker": "flappybird\\main.cpp",
               "ToolTip": "C:\\game\\flappybird\\flappybird\\main.cpp",
               "RelativeToolTip": "flappybird\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-27T08:03:30.4Z",
               "IsPinned": true,
@@ -60,13 +60,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "pipe.h",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\pipe.h",
               "RelativeDocumentMoniker": "flappybird\\pipe.h",
               "ToolTip": "C:\\game\\flappybird\\flappybird\\pipe.h",
               "RelativeToolTip": "flappybird\\pipe.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-30T16:11:02.997Z",
               "IsPinned": true,
@@ -74,33 +74,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "global.h",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\global.h",
               "RelativeDocumentMoniker": "flappybird\\global.h",
-              "ToolTip": "C:\\game\\flappybird\\flappybird\\global.h*",
-              "RelativeToolTip": "flappybird\\global.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
+              "ToolTip": "C:\\game\\flappybird\\flappybird\\global.h",
+              "RelativeToolTip": "flappybird\\global.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-01T00:30:47.633Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "global.cpp",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\global.cpp",
               "RelativeDocumentMoniker": "flappybird\\global.cpp",
-              "ToolTip": "C:\\game\\flappybird\\flappybird\\global.cpp*",
-              "RelativeToolTip": "flappybird\\global.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\game\\flappybird\\flappybird\\global.cpp",
+              "RelativeToolTip": "flappybird\\global.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-30T15:39:29.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "function.h",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\function.h",
               "RelativeDocumentMoniker": "flappybird\\function.h",
@@ -113,41 +114,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "function.cpp",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\function.cpp",
               "RelativeDocumentMoniker": "flappybird\\function.cpp",
-              "ToolTip": "C:\\game\\flappybird\\flappybird\\function.cpp*",
-              "RelativeToolTip": "flappybird\\function.cpp*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEBAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\game\\flappybird\\flappybird\\function.cpp",
+              "RelativeToolTip": "flappybird\\function.cpp",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAAAFkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-30T15:43:14.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "constant.h",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\constant.h",
               "RelativeDocumentMoniker": "flappybird\\constant.h",
               "ToolTip": "C:\\game\\flappybird\\flappybird\\constant.h",
               "RelativeToolTip": "flappybird\\constant.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-30T15:29:43.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "lib.h",
               "DocumentMoniker": "C:\\game\\flappybird\\flappybird\\lib.h",
               "RelativeDocumentMoniker": "flappybird\\lib.h",
               "ToolTip": "C:\\game\\flappybird\\flappybird\\lib.h",
               "RelativeToolTip": "flappybird\\lib.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-30T15:29:09.474Z"
+              "WhenOpened": "2025-03-30T15:29:09.474Z",
+              "EditorCaption": ""
             }
           ]
         }
